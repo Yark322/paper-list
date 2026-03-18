@@ -47,3 +47,36 @@ summary:
 损失优化：图文对比损失（基础） + 视觉自监督损失（图像） + 旧原型回放损失（文本）。
 
 推理输出：初步预测得出top-k个候选类别 → 在top-k个候选类别中，GPT-4 生成判别特征（这里有一定权重） → 综合初步预测和GPT-4的判别特征，最终校准结果。
+### DC-Merge: Improving Model Merging with Directional Consistency
+code-link:  https://github.com/Tobeginwith/DC-Merge
+
+CVPR 2026
+
+summary:
+
+1 计算任务向量
+Δi = Wi − W0
+
+2 SVD分解
+Δi = Ui Σi Vi^T
+
+3 Energy smoothing
+平滑奇异值
+
+4 构造cover space
+拼接所有Ui,Vi
+
+5 Whitening
+得到 U~, V~
+
+6 投影任务
+Mi = U~^T Δi V~
+
+7 合并任务
+M~ = merge(Mi)
+
+8 投影回参数空间
+Δ~ = U~ M~ V~^T
+
+9 得到最终模型
+W~ = W0 + Δ~
