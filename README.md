@@ -80,3 +80,22 @@ M~ = merge(Mi)
 
 9 得到最终模型
 W~ = W0 + Δ~
+### Auto-Encoding Variational Bayes
+
+2022
+
+summary:
+
+1.从数据取 minibatch
+
+2.编码：计算数据的正态分布，得到 μ, σ
+
+3.采样：𝑧=𝜇+𝜎𝜖，𝜖是随机噪声，给一点随机性，让模型更鲁棒
+
+4.解码：根据样本得到 𝑝(𝑥∣𝑧)，即相当于生成新数据
+
+5.计算：
+reconstruction loss（即重构损失，让decoder能还原x）
+KL loss（让 latent 分布接近 prior（通常是标准正态），防止乱编码）
+
+6.反向传播
