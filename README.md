@@ -84,18 +84,17 @@ W~ = W0 + Δ~
 
 2022
 
-summary:
+summary:本质上是在auto encoder的基础上，把latent转化成正态分布，然后利用这个生成新数据
 
 1.从数据取 minibatch
 
-2.编码：计算数据的正态分布，得到 μ, σ
+2.编码：提取latent variable并计算正态分布，得到 μ, σ
 
 3.采样：𝑧=𝜇+𝜎𝜖，𝜖是随机噪声，给一点随机性，让模型更鲁棒
 
 4.解码：根据样本得到 𝑝(𝑥∣𝑧)，即相当于生成新数据
 
 5.计算：
-reconstruction loss（即重构损失，让decoder能还原x）
-KL loss（让 latent 分布接近 prior（通常是标准正态），防止乱编码）
+reconstruction loss（即重构损失，让decoder能还原x）和  KL loss（让 latent 分布接近 prior（通常是标准正态），防止乱编码）
 
 6.反向传播
