@@ -82,7 +82,7 @@ M~ = merge(Mi)
 W~ = W0 + Δ~
 ### Auto-Encoding Variational Bayes
 
-2022
+2013
 
 summary:本质上是在auto encoder的基础上，把latent转化成正态分布，然后利用这个生成新数据
 
