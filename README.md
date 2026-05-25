@@ -98,3 +98,17 @@ summary:本质上是在auto encoder的基础上，把latent转化成正态分布
 reconstruction loss（即重构损失，让decoder能还原x）和  KL loss（让 latent 分布接近 prior（通常是标准正态），防止乱编码）
 
 6.反向传播
+### Orthogonal Model Merging
+code-link:  https://github.com/Sphere-AI-Lab/OrthoMerge
+
+ICML 2026
+
+summary:
+
+论文先把每个任务模型分解成“正交部分”和“残差部分”：
+
+正交部分用作者提出的 OrthoMerge 在李代数空间里融合；
+
+残差部分仍然用传统 TA/TIES/TSV-M 等方法融合；
+
+最后再组合起来形成最终模型。
